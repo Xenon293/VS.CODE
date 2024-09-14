@@ -20,7 +20,7 @@
             padding: 20px;
             border-radius: 15px;
             background-color: #fff0f5;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(58, 55, 55, 0.1);
         }
         h1 {
             color: #ff69b4;
@@ -35,11 +35,31 @@
         }
     </style>
 </head>
-<body>
     <div class="container">
         <h1>Hello, My Love!</h1>
         <p>You are the most amazing person in my life. Thank you for everything you do.</p>
         <img src="hana.jpg" alt="My beautiful gf">
-    </div>
+
+        <audio id="bgMusic" loop>
+          <source src="One Direction - 18 (Lyrics).mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+        
+        <button onclick="toggleMusic()">Play/Pause Music</button>
+        
+        <script>
+          const bgMusic = document.getElementById("bgMusic");
+          let isPlaying = false;
+        
+          function toggleMusic() {
+            if (isPlaying) {
+              bgMusic.pause();
+              isPlaying = false;
+            } else {
+              bgMusic.play();
+              isPlaying = true;
+            }
+          }
+        </script>
 </body>
 </html>
