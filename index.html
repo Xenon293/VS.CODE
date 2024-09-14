@@ -20,46 +20,74 @@
             padding: 20px;
             border-radius: 15px;
             background-color: #fff0f5;
-            box-shadow: 0 0 10px rgba(58, 55, 55, 0.1);
+            box-shadow: 0 0 15px rgba(58, 55, 55, 0.2);
+            max-width: 400px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .container:hover {
+            transform: scale(1.05);
         }
         h1 {
             color: #ff69b4;
+            font-size: 36px;
         }
         p {
             color: #333;
             font-size: 18px;
+            line-height: 1.6;
         }
         img {
             max-width: 100%;
             border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff1493;
         }
     </style>
 </head>
+<body>
+
     <div class="container">
         <h1>Hello, My Love!</h1>
-        <p>You are the most amazing person in my life. Thank you for everything you do.Ilove youu!</p>
-        <img src="hanna.jpg" alt="My beautiful gf">
+        <p>You are the most amazing person in my life. Thank you for everything you do. I love you!</p>
+        <img src="hanna.jpg" alt="A picture of Hanna smiling">
 
         <audio id="bgMusic" loop>
           <source src="One Direction - 18 (Lyrics).mp3" type="audio/mp3">
           Your browser does not support the audio element.
         </audio>
-        
-        <button onclick="toggleMusic()">Play/Pause Music</button>
-        
-        <script>
-          const bgMusic = document.getElementById("bgMusic");
-          let isPlaying = false;
-        
-          function toggleMusic() {
-            if (isPlaying) {
-              bgMusic.pause();
-              isPlaying = false;
-            } else {
-              bgMusic.play();
-              isPlaying = true;
-            }
-          }
-        </script>
+
+        <button id="musicButton" onclick="toggleMusic()">Play Music</button>
+    </div>
+
+    <script>
+      const bgMusic = document.getElementById("bgMusic");
+      const musicButton = document.getElementById("musicButton");
+      let isPlaying = false;
+
+      function toggleMusic() {
+        if (isPlaying) {
+          bgMusic.pause();
+          musicButton.textContent = "Play Music";
+        } else {
+          bgMusic.play();
+          musicButton.textContent = "Pause Music";
+        }
+        isPlaying = !isPlaying;
+      }
+    </script>
+
 </body>
 </html>
